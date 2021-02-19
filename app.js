@@ -10,6 +10,13 @@ var celebsRouter = require('./routes/celebs')
 
 var app = express();
 
+// establish monoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://dxanders1:<K##Hp822m7%b4VZ>@cluster0.dnz0w.mongodb.net/starrater?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -39,5 +46,3 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-module.exports = app;
