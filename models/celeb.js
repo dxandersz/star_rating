@@ -10,11 +10,11 @@ var CelebSchema = new Schema(
         career: [{type: Schema.Types.ObjectId, ref: 'Career'}],
         date_of_birth: {type: Date},
         date_of_death: {type: Date},
-        controversiality: {type: Number, default: 0, max: 5, required: true},
-        niceness: {type: Number, default: 0, max: 5, required: true},
-        sex_appeal: {type: Number, default: 0, max: 5, required: true},
-        staying_power: {type: Number, default: 0, max: 5, required: true},
-        they_fuck: {type: Boolean, required: true}
+        controversiality: {type: Array, required: true},
+        niceness: {type: Array, required: true},
+        sex_appeal: {type: Array, required: true},
+        staying_power: {type: Array, required: true},
+        they_fuck: {type: Array}
     }
 );
 
